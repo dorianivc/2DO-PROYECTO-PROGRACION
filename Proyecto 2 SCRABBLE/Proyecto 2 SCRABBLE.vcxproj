@@ -115,6 +115,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Fichas.h" />
+    <ClInclude Include="ListaDiccionario.h" />
+    <ClInclude Include="ListaFichas.h" />
+    <ClInclude Include="NodoDiccionario.h" />
+    <ClInclude Include="NodoFichas.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Fichas.cpp" />
+    <ClCompile Include="ListaDiccionario.cpp" />
+    <ClCompile Include="ListaFichas.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="NodoDiccionario.cpp" />
+    <ClCompile Include="NodoFichas.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
