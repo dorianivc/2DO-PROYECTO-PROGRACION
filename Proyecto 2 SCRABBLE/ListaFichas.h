@@ -9,6 +9,9 @@ private:
 public:
 	ListaFichas();
 	void insertarInicio(Fichas*);
+	void insertarFinal(Fichas*);
+	string obtenerLetras();
+	int obtenerValorLetras();//suma los valores de cada ficha y lo retorna;
 	bool eliminarInicio();
 	string toString();
 	int cuentaNodos();

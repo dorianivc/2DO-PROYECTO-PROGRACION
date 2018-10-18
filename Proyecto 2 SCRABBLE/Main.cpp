@@ -63,13 +63,14 @@ int main() {
 			cout << TOTALFICHAS << endl;
 	
 		} 
+	FICHAS.insertarInicio(new Fichas("COMODIN", "0", "2"));
+
 		cout << "Contador de nodos: " << endl;
 		cout << FICHAS.cuentaNodos() << endl;
 		lecturaFichas.close();
 		//<-----------------------FALTA LAS FICHAS EN BLANCO
 		system("PAUSE");
-
-	
+			
 
 	return 0;
 }

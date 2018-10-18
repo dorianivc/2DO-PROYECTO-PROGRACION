@@ -20,6 +20,26 @@ string Fichas::toString()
 	return p.str();
 }
 
+string Fichas::getLetra()
+{
+	return letra;
+}
+
+void Fichas::setLetra(string LETRA)
+{
+	letra = LETRA;
+}
+
+int Fichas::getValor()
+{
+	return valor;
+}
+
+void Fichas::utilizarFicha()
+{
+	totalFichas = totalFichas - 1;
+}
+
 
 Fichas::~Fichas()
 {
