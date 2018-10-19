@@ -61,7 +61,7 @@ string ListaFichas::obtenerLetras()
 
 int ListaFichas::obtenerValorLetras()
 {
-	int valor=0, aux;
+	int valor=0, aux=0;
 	actual = primero;
 	if (primero != NULL)
 	{
@@ -69,10 +69,10 @@ int ListaFichas::obtenerValorLetras()
 		{
 			aux = actual->getLetra()->getValor();
 			actual = actual->getSiguiente();
-			valor = +aux;
+			valor= valor + aux;
 		}
 		aux = actual->getLetra()->getValor();
-		valor = +aux;
+		valor = valor + aux;
 		return valor;
 	}
 	else
@@ -122,6 +122,20 @@ int ListaFichas::cuentaNodos()
 bool ListaFichas::listaVacia()
 {
 	return  (primero == NULL) ? true : false;
+}
+
+NodoFichas * ListaFichas::fichaAleatoria(int num)
+{
+	actual = primero;
+	if (primero != NULL) 
+	{
+		for (int i = 0; i < num; i++) 
+		{
+			actual = actual->getSiguiente();
+		}
+		actual->getLetra()->utilizarFicha();
+		return actual;
+	}
 }
 
 ListaFichas::~ListaFichas()

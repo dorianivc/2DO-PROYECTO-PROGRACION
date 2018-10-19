@@ -16,6 +16,7 @@ public:
 	string toString();
 	int cuentaNodos();
 	bool listaVacia();
+	NodoFichas* fichaAleatoria(int);
 	~ListaFichas();
 };
 

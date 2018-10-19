@@ -16,7 +16,7 @@ string Fichas::toString()
 	stringstream p;
 	p << "Letra: " << letra << endl;
 	p << "Valor: " << valor << endl;
-	p << "Cantidad de Fichas: " << cantidadDisponible << endl;
+	p << "-------------------------" << endl;
 	return p.str();
 }
 

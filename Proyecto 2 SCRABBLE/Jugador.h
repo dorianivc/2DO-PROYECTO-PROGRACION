@@ -19,6 +19,7 @@ public:
 	Palabra* getPalabra();
 	void setPalabra(Palabra*);
 	ListaFichas* getFichasJugador();
+	string toString();
 	~Jugador();
 };
 

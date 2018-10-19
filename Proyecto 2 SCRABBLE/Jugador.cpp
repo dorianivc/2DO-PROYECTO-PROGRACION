@@ -38,6 +38,23 @@ ListaFichas * Jugador::getFichasJugador()
 	return sieteFichas;
 }
 
+string Jugador::toString()
+{
+	stringstream p;
+	p << "Nombre: " << nombre << endl;
+	p << "Puntuacion: " << puntuacion << endl;
+	if (laPalabra != NULL)
+	{
+		p << laPalabra->toString() << endl;
+	}
+	else
+	{ 
+		p << "Palabra: SIN PALABRA FORMADA AUN" << endl;
+	}
+	p << sieteFichas->toString() << endl;
+	return p.str();
+}
+
 Jugador::~Jugador()
 {
 }

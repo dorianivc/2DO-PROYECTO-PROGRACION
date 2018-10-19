@@ -7,6 +7,9 @@
 #include "ListaDiccionario.h"
 #include "ContenedorFichas.h"
 #include "ListaFichas.h"
+#include <time.h>
+#include "Tablero.h"
+#include "Jugador.h"
 using namespace std;
 
 int main() {
@@ -65,12 +68,57 @@ int main() {
 		} 
 	FICHAS.insertarInicio(new Fichas("COMODIN", "0", "2"));
 
+		
 		cout << "Contador de nodos: " << endl;
 		cout << FICHAS.cuentaNodos() << endl;
 		lecturaFichas.close();
 		//<-----------------------FALTA LAS FICHAS EN BLANCO
 		system("PAUSE");
+		//<----------------------- Hacemos la lista de 7 fichas para darselas a cada jugador
+		srand(time(NULL));
+		ListaFichas* fichasA;
+		ListaFichas* fichasB;
+		fichasA = new ListaFichas();
+		fichasB = new ListaFichas();
+		int num;
+		num= 1 + rand() % (29 - 1);
+		for (int i = 0; i <7 ; i++) 
+		{
+			num = 1 + rand() % (29 - 1);
+			fichasA->insertarInicio(FICHAS.fichaAleatoria(num)->getLetra());
 			
+		}
 
+		for (int y = 0; y < 7; y++)
+		{
+			num = 1 + rand() % (29 - 1);
+			fichasB->insertarInicio(FICHAS.fichaAleatoria(num)->getLetra());;
+
+		}
+/*
+		cout << fichasA->toString() << endl;
+		cout << fichasB->toString() << endl;
+		system("PAUSE");
+		//<------------------------------- Creo cada Jugador con sus fichas
+		
+		string nombre;
+		cout << "Digite el nombre del Jugador 1 y presione ENTER dos veces" << endl;
+		getline(cin, nombre);
+		Jugador* A = new Jugador (nombre, fichasA);
+		cin.ignore();
+		cout << "Digite el nombre del Jugador 2 y presione ENTER dos veces" << endl;
+		getline(cin, nombre);
+		Jugador* B = new Jugador(nombre, fichasA);
+		cin.ignore();
+		cout << A->toString() << endl;
+		cout << B->toString() << endl;
+		Palabra* prueba;
+		prueba = new Palabra(fichasA);
+		A->setPalabra(prueba);
+		cout << A->toString() << endl;*/
+
+		Tablero* tb = new Tablero();
+		cout << tb->toString() << endl;
+		system("PAUSE");
 	return 0;
 }
