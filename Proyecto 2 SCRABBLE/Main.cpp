@@ -95,7 +95,7 @@ int main() {
 			fichasB->insertarInicio(FICHAS.fichaAleatoria(num)->getLetra());;
 
 		}
-/*
+
 		cout << fichasA->toString() << endl;
 		cout << fichasB->toString() << endl;
 		system("PAUSE");
@@ -115,7 +115,7 @@ int main() {
 		Palabra* prueba;
 		prueba = new Palabra(fichasA);
 		A->setPalabra(prueba);
-		cout << A->toString() << endl;*/
+		cout << A->toString() << endl;
 
 		Tablero* tb = new Tablero();
 		cout << tb->toString() << endl;
