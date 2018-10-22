@@ -30,7 +30,6 @@ string Palabra::toString()
 	p << "Bonos: " << bonos << endl;
 	p << "Valor Simple: " << valorSimple << endl;
 	p << "Valor Total: " << valorTotal << endl;
-	p << palabraFormada->toString() << endl;
 	return p.str();
 }
 
