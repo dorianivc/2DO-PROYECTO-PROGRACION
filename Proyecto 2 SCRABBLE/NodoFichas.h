@@ -4,7 +4,7 @@
 class NodoFichas
 {
 private:
-	Fichas* Letra;
+	Fichas* letra;
 	NodoFichas* siguiente;
 
 public:

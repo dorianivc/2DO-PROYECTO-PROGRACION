@@ -25,6 +25,11 @@ string Fichas::getLetra()
 	return letra;
 }
 
+int Fichas::getCantidadDisponible()
+{
+	return cantidadDisponible;
+}
+
 void Fichas::setLetra(string LETRA)
 {
 	letra = LETRA;

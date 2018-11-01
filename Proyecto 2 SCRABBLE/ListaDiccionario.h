@@ -10,6 +10,7 @@ public:
 	Lista();
 	void insertarInicio(string*);
 	bool eliminarInicio();
+	bool getNodoSegunPalabra(string );
 	string toString();
 	int cuentaNodos();
 	bool listaVacia();

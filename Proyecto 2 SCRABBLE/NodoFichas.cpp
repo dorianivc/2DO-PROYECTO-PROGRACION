@@ -4,18 +4,18 @@
 
 NodoFichas::NodoFichas(Fichas* LETRA, NodoFichas* SGT)
 {
-	Letra = LETRA;
+	letra = LETRA;
 	siguiente = SGT;
 }
 
 void NodoFichas::setLetra(Fichas * INFO)
 {
-	Letra = INFO;
+	letra = INFO;
 }
 
 Fichas* NodoFichas::getLetra()
 {
-	return Letra;
+	return letra;
 }
 
 void NodoFichas::setSiguiente(NodoFichas * SGT)
@@ -30,7 +30,7 @@ NodoFichas * NodoFichas::getSiguiente()
 
 string NodoFichas::toString()
 {
-return Letra->toString();
+return letra->toString();
 }
 
 

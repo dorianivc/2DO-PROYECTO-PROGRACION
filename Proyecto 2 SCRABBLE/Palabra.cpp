@@ -17,6 +17,21 @@ void Palabra::actualizarBono(int BONO)
 	valorTotal = valorSimple * bonos;
 }
 
+void Palabra::setListaPalabraFormada(ListaFichas * A)
+{
+	palabraFormada = A;
+}
+
+ListaFichas * Palabra::getPalabraFormada()
+{
+	return palabraFormada;
+}
+
+string Palabra::getLaPalabra()
+{
+	return laPalabra;
+}
+
 int Palabra::getValorTotal()
 {
 	return valorTotal;

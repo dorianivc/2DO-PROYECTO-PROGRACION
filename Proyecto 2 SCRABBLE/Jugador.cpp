@@ -20,7 +20,7 @@ int Jugador::getPuntuacion()
 
 void Jugador::sumarPuntuacion(int PUNTOSGANADOS)
 {
-	puntuacion = +PUNTOSGANADOS;
+	puntuacion = puntuacion + PUNTOSGANADOS;
 }
 
 Palabra * Jugador::getPalabra()

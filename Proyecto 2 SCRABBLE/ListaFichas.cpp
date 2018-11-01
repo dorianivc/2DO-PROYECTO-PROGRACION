@@ -6,6 +6,33 @@ ListaFichas::ListaFichas()
 	actual = NULL;
 }
 
+Fichas * ListaFichas::getFichaDeLista(string LETRA)
+{
+	actual = primero;
+	if (primero != NULL)
+	{
+		while (actual->getSiguiente() != NULL)
+		{
+			if (actual->getLetra()->getLetra() == LETRA)
+			{
+				return actual->getLetra();
+			}
+			else
+				actual = actual->getSiguiente();
+
+		}
+		actual->getSiguiente();
+		if (actual->getLetra()->getLetra() == LETRA)
+		{
+			return actual->getLetra();
+		}
+		else return NULL;
+	
+	}
+}
+
+
+
 void ListaFichas::insertarInicio(Fichas *  LETRA)
 {
 	{
@@ -26,12 +53,12 @@ void ListaFichas::insertarInicio(Fichas *  LETRA)
 
 void ListaFichas::insertarFinal(Fichas * LETRA)
 {
-	actual = primero;
+
 	if (primero == NULL)
 	{
 		primero = new NodoFichas(LETRA, NULL);
 	}
-	else
+	else 
 		actual = primero;
 	while (actual->getSiguiente() != NULL) 
 	{
@@ -50,7 +77,7 @@ string ListaFichas::obtenerLetras()
 		{
 			aux1 =actual->getLetra()->getLetra();
 			actual = actual->getSiguiente();
-			cadena = cadena + aux1;
+			cadena =  cadena + aux1;
 		}
 		aux1 = actual->getLetra()->getLetra();
 		cadena = cadena + aux1;
@@ -77,6 +104,23 @@ int ListaFichas::obtenerValorLetras()
 	}
 	else
 		return 0;
+}
+
+Fichas * ListaFichas::getFichasOrdenadas(int limite)
+{
+	while(primero!=NULL){
+	actual = primero;
+	if (limite == 0) 
+	{
+		return actual->getLetra();
+	}
+
+	for (int i = 0; i < limite; i++) 
+	{
+		actual = actual->getSiguiente();
+	}
+	return actual->getLetra();
+	}
 }
 
 bool ListaFichas::eliminarInicio()
@@ -124,6 +168,34 @@ bool ListaFichas::listaVacia()
 	return  (primero == NULL) ? true : false;
 }
 
+void ListaFichas::eliminarFicha(string letra)
+{
+	if (primero != NULL)
+	{
+		actual = primero;
+		NodoFichas* auxBorrar;
+		NodoFichas* anterior = actual;
+		auxBorrar = actual;
+		while (auxBorrar != NULL && auxBorrar->getLetra()->getLetra() != letra) {
+			anterior = actual;
+			auxBorrar = auxBorrar->getSiguiente();
+		}
+		if (auxBorrar == NULL) {
+			cout << "El elemento no existe" << endl;
+		}
+		else
+			if (anterior == NULL) {
+				actual = actual->getSiguiente();
+				delete auxBorrar;
+			}
+			else
+			{
+				actual->setSiguiente(auxBorrar->getSiguiente());
+				delete auxBorrar;
+			}
+	}
+}
+
 NodoFichas * ListaFichas::fichaAleatoria(int num)
 {
 	actual = primero;
@@ -133,11 +205,27 @@ NodoFichas * ListaFichas::fichaAleatoria(int num)
 		{
 			actual = actual->getSiguiente();
 		}
-		actual->getLetra()->utilizarFicha();
-		return actual;
+		if (actual->getLetra()->getCantidadDisponible() != 0) 
+		{
+			actual->getLetra()->utilizarFicha();
+			return actual;
+		}
+		else {
+
+
+			srand(time(NULL));
+			int num1 = 1 + rand() % (29 - 1);
+			fichaAleatoria(num1);
+		}
+		
 	}
 }
 
 ListaFichas::~ListaFichas()
 {
+	while (primero != NULL) { // voy eliminando siempre el primero
+		actual = primero;
+		primero = primero->getSiguiente();
+		delete actual;
+	}
 }

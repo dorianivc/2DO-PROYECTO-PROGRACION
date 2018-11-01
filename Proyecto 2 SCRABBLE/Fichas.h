@@ -19,6 +19,7 @@ public:
 	Fichas(string,string,string);
 	string toString();
 	string getLetra();
+	int getCantidadDisponible();
 	void setLetra(string);//para cuando sea ficha comodin;
 	int getValor();
 	void utilizarFicha();

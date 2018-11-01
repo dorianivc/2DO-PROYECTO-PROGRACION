@@ -39,6 +39,31 @@ bool Lista::eliminarInicio()
 		return true;
 	}
 }
+bool Lista::getNodoSegunPalabra(string  PALABRA)
+{
+	if (primero != NULL)
+	{
+		actual = primero;
+		while (actual->getSiguiente() != NULL)
+		{
+			if (actual->getInfo() == &PALABRA)
+			{
+				return true;
+			}
+			else
+				actual = actual->getSiguiente();
+		}
+
+		if (actual->getInfo() == &PALABRA)
+		{
+			return true;
+		}
+		else
+			return false;
+	}
+	else
+		return false;
+}
 
 string Lista::toString()
 {
@@ -74,4 +99,9 @@ bool Lista::listaVacia()
 
 Lista::~Lista()
 {
+	while (primero != NULL) { // voy eliminando siempre el primero
+		actual = primero;
+		primero = primero->getSiguiente();
+		delete actual;
+	}
 }

@@ -12,6 +12,9 @@ private:
 public:
 	Palabra(ListaFichas*);
 	void actualizarBono(int);
+	void setListaPalabraFormada(ListaFichas*);
+	ListaFichas* getPalabraFormada();
+	string getLaPalabra();
 	int getValorTotal();
 	string toString();
 	~Palabra();
