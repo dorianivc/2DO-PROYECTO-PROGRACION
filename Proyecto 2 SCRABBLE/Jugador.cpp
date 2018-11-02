@@ -57,4 +57,5 @@ string Jugador::toString()
 
 Jugador::~Jugador()
 {
+	
 }

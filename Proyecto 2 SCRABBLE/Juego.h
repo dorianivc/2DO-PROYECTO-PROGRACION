@@ -10,7 +10,7 @@
 using  namespace std;
 class Juego
 {
-	int contadorJugadas = 0;
+	
 	Jugador* A;
 	Jugador* B;
 	Tablero* tablero;

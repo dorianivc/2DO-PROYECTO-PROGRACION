@@ -115,6 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ColeccionPalabras.h" />
     <ClInclude Include="Fichas.h" />
     <ClInclude Include="Juego.h" />
     <ClInclude Include="Jugador.h" />
@@ -126,6 +127,7 @@
     <ClInclude Include="Tablero.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ColeccionPalabras.cpp" />
     <ClCompile Include="Fichas.cpp" />
     <ClCompile Include="Juego.cpp" />
     <ClCompile Include="Jugador.cpp" />
