@@ -304,7 +304,7 @@ void Tablero::insertarLetrasInicioPalabraVertical(int columna, int fila, Palabra
 string Tablero::imprimeInstrucciones()
 {
 	stringstream p;
-	p << "1:Ingresar letra. 2: Verificar Palabra. 3: Ceder Turno. 4: Salir del Juego " << endl;
+	p << "1:Ingresar letra. 2: Agregar 7 fichas a mis fichas. 3: Ceder Turno. 4: Salir del Juego " << endl;
 	return p.str();
 }
 
