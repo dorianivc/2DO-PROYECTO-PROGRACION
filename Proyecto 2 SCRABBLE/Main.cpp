@@ -42,10 +42,8 @@ int validarNumero(string &p)
 	}
 	else if (validarNumeroAux(p) == false) 
 	{
-		while (validarNumero(p) != true)
-		{
-			cin >> p;
-		}
+		
+		cin >> p;
 		return p[0];
 	}
 		
@@ -71,12 +69,11 @@ string validarLetra(string &p)
 	}
 	else if (validarLetraAux(p) == false)
 	{
-		while (validarLetraAux(p) != true)
-		{
-			cin >> p;
-		}
-		return p;
+		cin >> p;
+		
+		
 	}
+	return p;
 
 }
 int main() {
@@ -91,7 +88,7 @@ int main() {
 	do{
 	cout << "Bienvenido a Scrabble" << endl;
 	string w = "0";
-	cout << "Digite uno para comenzar el juego" << endl;
+	cout << "Digite 1 para comenzar el juego" << endl;
 	cout << "Digite 2 para ver los records e historial de palabras ingresadas" << endl;
 	cout << "Presione 3 para salir" << endl;
 	cin >> w;
@@ -197,18 +194,15 @@ int main() {
 	cout << "Bienvenidos a Scrabble." << endl;
 	cout << "Este juego fue creado para jugar dos personas" << endl;
 	cout << "Despues de desplegado el tablero, seguidamente van a tener un menu" << endl;
-	cout << "1. Es para ingresar la ficha en el tablero, una vez escogida la letra que desea ingresar, digite La letra de la Columna y Fila para colocar las fichas" << endl;
+	cout << " Para ingresar la ficha en el tablero, una vez escogida la letra que desea ingresar, digite La letra de la Columna y Fila para colocar las fichas" << endl;
 	ColeccionPalabras* contenedor = new ColeccionPalabras();
-
-	/*string nombre;
-	cout << "Digite el nombre del Jugador 1 y presione ENTER dos veces" << endl;
-	getline(cin, nombre);*/
-	Jugador* A = new Jugador("nombre7", fichasA);
-	/*cin.ignore();
-	cout << "Digite el nombre del Jugador 2 y presione ENTER dos veces" << endl;
-	getline(cin, nombre);*/
-	Jugador* B = new Jugador("nombre", fichasB);
-	//cin.ignore();
+	string nombre;
+	cout << "Digite el nombre del Jugador 1 y presione ENTER " << endl;
+	cin >> nombre;
+	Jugador* A = new Jugador(nombre, fichasA);
+	cout << "Digite el nombre del Jugador 2 y presione ENTER" << endl;
+	cin >> nombre;
+	Jugador* B = new Jugador(nombre, fichasB);
 	//<------------------------------------- Aqui una prueba de palabra;
 	Palabra* palabraAUX = new Palabra(fichasA);
 
@@ -512,7 +506,7 @@ int main() {
 //<--------------Jugador A;
 	
 	do{
-	// gato = 'p';
+	
 	cout << juegoPrincipal->getTablero()->toString() << endl;
 	cout << "Es el turno de " << juegoPrincipal->getA()->getNombre() << endl;
 	cout << juegoPrincipal->getA()->toString() << endl;
@@ -520,7 +514,7 @@ int main() {
 	
 	string eleccionA;
 	do {
-		//zopilote = 'p';
+		
 		cin >> eleccionA;
 		eleccionA = validarNumero(eleccionA);
 		if (eleccionA == "1")
@@ -604,12 +598,12 @@ int main() {
 							{
 								cout << "Digite la letra de la columna donde quiere poner la palabra" << endl;
 								char columna;
-								cin >> columna;//validaciones no puede ser numero, letra ni mayor a 13
+								cin >> columna;
 								juegoPrincipal->retornaValor(columna);
 								int eleccionColumna = juegoPrincipal->retornaValor(columna);
 								cout << "Digite el numero de la fila donde quiere poner la palabra" << endl;
 								int fila;
-								cin >> fila;//validaciones no puede ser ni letra ni mayor a 13
+								cin >> fila;
 								if (fila < 0 || fila>13)
 								{
 									do
@@ -711,7 +705,7 @@ int main() {
 						{
 							cout << "Por favor seleccione sus fichas uno por uno seguido de enter, y cuando termina presiona -->SD<--" << endl;
 							cout << A->toString() << endl;
-							ListaFichas* fichasJugada1 = new ListaFichas();
+							ListaFichas* fichasJugada = new ListaFichas();
 							int contador = 0;//contador de jugadas
 							for (int y = 0; y < 13; y++) {
 								cin >> entrada;
@@ -734,7 +728,7 @@ int main() {
 
 										Fichas* aux3 = aux;
 										cout << aux3->toString() << endl;
-										fichasJugada1->insertarInicio(aux3);
+										fichasJugada->insertarInicio(aux3);
 
 										contador++;
 
@@ -745,7 +739,7 @@ int main() {
 										{
 											Fichas* aux2 = aux;
 											cout << aux2->toString() << endl;
-											fichasJugada1->insertarFinal(aux2);
+											fichasJugada->insertarFinal(aux2);
 
 										}
 										else
@@ -760,9 +754,9 @@ int main() {
 
 
 							}
-							cout << fichasJugada1->toString() << endl;
+							cout << fichasJugada->toString() << endl;
 
-							if (fichasJugada1 != NULL)
+							if (fichasJugada != NULL)
 							{
 								delete entrante;
 								entrante = new Palabra(fichasJugada);
@@ -1123,7 +1117,6 @@ int main() {
 			}
 			else 
 				cout << "Ha digitado un caracter incorrecto por favor intentelo de nuevo" << endl;
-				zopilote = 6;
 	}while (zopilote<6);
 
 	//<-----------TERMINA JUGADOR A;
@@ -1323,7 +1316,7 @@ int main() {
 						{
 							cout << "Por favor seleccione sus fichas uno por uno seguido de enter, y cuando termina presiona -->SD<--" << endl;
 							cout << B->toString() << endl;
-							ListaFichas* fichasJugada1 = new ListaFichas();
+							ListaFichas* fichasJugada = new ListaFichas();
 							int contador = 0;//contador de jugadas
 							for (int y = 0; y < 13; y++) {
 								cin >> entrada;
@@ -1346,7 +1339,7 @@ int main() {
 
 										Fichas* aux3 = aux;
 										cout << aux3->toString() << endl;
-										fichasJugada1->insertarInicio(aux3);
+										fichasJugada->insertarInicio(aux3);
 
 										contador++;
 
@@ -1371,9 +1364,9 @@ int main() {
 
 
 							}
-							cout << fichasJugada1->toString() << endl;
+							cout << fichasJugada->toString() << endl;
 
-							if (fichasJugada1 != NULL)
+							if (fichasJugada != NULL)
 							{
 								delete entrante;
 								entrante = new Palabra(fichasJugada);
@@ -1520,7 +1513,7 @@ int main() {
 						 {
 							 cout << "Por favor seleccione sus fichas uno por uno seguido de enter, y cuando termina presiona -->SD<--" << endl;
 							 cout << A->toString() << endl;
-							 ListaFichas* fichasJugada1 = new ListaFichas();
+							 ListaFichas* fichasJugada = new ListaFichas();
 							 int contador = 0;//contador de jugadas
 							 for (int y = 0; y < 13; y++) {
 								 cin >> entrada;
@@ -1543,7 +1536,7 @@ int main() {
 
 										 Fichas* aux3 = aux;
 										 cout << aux3->toString() << endl;
-										 fichasJugada1->insertarInicio(aux3);
+										 fichasJugada->insertarInicio(aux3);
 
 										 contador++;
 
@@ -1554,7 +1547,7 @@ int main() {
 										 {
 											 Fichas* aux2 = aux;
 											 cout << aux2->toString() << endl;
-											 fichasJugada1->insertarFinal(aux2);
+											 fichasJugada->insertarFinal(aux2);
 
 										 }
 										 else
@@ -1569,9 +1562,9 @@ int main() {
 
 
 							 }
-							 cout << fichasJugada1->toString() << endl;
+							 cout << fichasJugada->toString() << endl;
 
-							 if (fichasJugada1 != NULL)
+							 if (fichasJugada != NULL)
 							 {
 								 delete entrante;
 								 entrante = new Palabra(fichasJugada);
@@ -1738,7 +1731,6 @@ int main() {
 			}
 			else
 				cout << "Ha digitado un caracter incorrecto por favor intentelo de nuevo" << endl;
-				perro = 'p';
 	} while (perro<5);
 	//<-------------TERMINA JUGADOR B;
 	}while (gato== 'p');
@@ -1767,20 +1759,22 @@ int main() {
 	{
 		if (contenedor->getPalabra(i1) != "VACIO") 
 		{
-			palabrasAcertadas << contenedor->getPalabra(i1) << endl;
+			palabrasAcertadas << contenedor->getPalabra(i1) << "/";
 		}
 	}
 	palabrasAcertadas.close();
-	delete entrante;
+	FICHAS->~ListaFichas();
 	fichasA->~ListaFichas();
 	fichasB->~ListaFichas();
-	FICHAS->~ListaFichas();
+	fichasJugada->~ListaFichas();
+	delete entrante;
+	delete contenedor;
 	diccionario->~Lista();
+	delete diccionario;
 	delete fichasJugada;
 	delete juegoPrincipal;
 	delete fichasA;
 	delete fichasB;
-	
 	delete palabraAUX;
 	delete FICHAS;
 	}
@@ -1801,6 +1795,25 @@ int main() {
 		}
 		system("PAUSE");
 		lectura.close();
+		}
+	cout << "Historial de palabras" << endl;
+	ifstream revisar;
+	revisar.open("PalabrasAcertadas.txt");
+	if (revisar.fail()) 
+	{
+		cout << "Error abriendo el archivo" << endl;
+		system("PAUSE");
+
+	}
+	else
+	{
+		while (!revisar.eof()) 
+		{
+			getline(revisar, lectura2, '/');
+			cout << lectura2 << endl;
+		}
+		system("PAUSE");
+		revisar.close();
 		}
 	}
 	else if (w == "3") {

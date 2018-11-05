@@ -17,8 +17,6 @@ class Juego
 	Lista* Diccionario;
 public:
 	Juego(Jugador*, Jugador*, Tablero*, Lista*);
-	ListaFichas* crearPrimeraPalabra(int);
-	void JugarPrimeraParte();
 	bool insertarFichasHorizontalInicio(int, int, Palabra*);
 	bool insertarFichasVerticalInicio(int, int, Palabra*);
 	//Este metodo es para ingresar fichas o palabras al inicio de otra palabra 

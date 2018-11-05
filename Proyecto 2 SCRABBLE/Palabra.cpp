@@ -51,4 +51,5 @@ string Palabra::toString()
 
 Palabra::~Palabra()
 {
+	
 }
